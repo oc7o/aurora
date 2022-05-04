@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  aurora_frontend:
+    build:
+      context: .
+    volumes:
+      - .:/frontend
+    ports:
+      - 3000:3000
+    image: aurora_frontend:latest
+    container_name: aurora_frontend
+    command: npm run dev
+    networks:
+      - aurora_network
+
+networks:
+  aurora_network:
+    driver: bridge
+    external: true

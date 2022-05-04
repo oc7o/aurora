@@ -1,0 +1,62 @@
+version: "3.8"
+
+services:
+  aurora_pgdb:
+    container_name: "aurora_bgdb"
+    image: postgres
+    # restart: always
+    # ports:
+    #  - 5432:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+    networks:
+      - aurora_backend
+  auroranode:
+    build: .
+#     restart: always
+    volumes:
+      - .:/aurora
+    ports:
+      - 8000:8000
+    image: aurora_node:latest
+    hostname: node
+    # container_name: auroranode
+    # command: python3 manage.py runserver 0.0.0.0:8000
+    env_file: .env
+    depends_on:
+      aurora_pgdb:
+        condition: service_healthy
+
+    networks:
+      - aurora_network
+      - aurora_backend
+
+  # esearch:
+  #   container_name: search
+  #   image: elasticsearch:7.14.2
+  #   environment:
+  #     - discovery.type=single-node
+  #   ports:
+  #     - "9200:9200"
+
+volumes:
+  db:
+    external: false
+
+networks:
+  aurora_network:
+    name: aurora_network
+    driver: bridge
+  
+  aurora_backend:
+    external: false
