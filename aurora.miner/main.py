@@ -5,8 +5,8 @@ import datetime
 import sys
 
 
-PRIVATE_KEY = "62937e6b38fcefdc8aab7bcebf056b9c3fa4dbb5dff4d3ddc2d58c50ee2604da"
-PUBLIC_KEY = "931787c33a519937fe297678834f6efc40f98119c25e95e83c2b7f1a9e90ac05"
+PRIVATE_KEY = ""
+PUBLIC_KEY = ""
 
 # utils
 
@@ -56,11 +56,11 @@ def block_hash(block, transactions):
 
 class Miner():
     # Config
-    api_url = "http://localhost:8000/api/"
+    api_url = "http://blockchain.aurora-coin.tk/api/"
     headers =  {"Content-Type":"application/json"}
     private_key = ""
     public_key = ""
-    difficulty = 5
+    difficulty = 7
     # running = False
 
     def __init__(self, private, pubic) -> None:
@@ -141,5 +141,4 @@ class Miner():
 ### Start
 
 miner = Miner(PRIVATE_KEY, PUBLIC_KEY)
-# miner.run()
 miner.generate_block()
