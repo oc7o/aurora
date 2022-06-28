@@ -1,11 +1,9 @@
-version: "3.8"
+version: "2.1"
 
 services:
   aurora_frontend:
     build:
       context: .
-    volumes:
-      - .:/frontend
     ports:
       - 3000:3000
     image: aurora_frontend:latest
