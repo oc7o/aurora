@@ -21,6 +21,7 @@ then
     python manage.py runserver 0.0.0.0:8000
 else
     echo "Running Production"
-    uwsgi --socket :8000 --master --enable-threads --module djangoserver.wsgi
+    exec gunicorn aurora.wsgi:application --bind 0.0.0.0:8000 --workers 3
+    # uwsgi --socket :8000 --master --enable-threads --module aurora.wsgi # whether this will be implemented in future or deleted
 fi
 
