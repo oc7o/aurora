@@ -141,20 +141,16 @@
       <!-- Three -->
       <section id="three" class="wrapper style1 fade-up">
         <div class="inner">
-          <h2>Developed by</h2>
-          <p>
-            Hi I am Greed, the developer of this project.
-          </p>
+          <h2>Developed by oc7o aka. 0x70 🐙</h2>
           <div class="split style1">
             <section>
               <ul class="contact">
                 <li>
-                  <h3>Email</h3>
-                  <a href="#">master@elhoel.gq</a>
-                </li>
-                <li>
                   <h3>Social</h3>
-                  I don't use social networks.
+                  <ul class="icons">
+                    <li><a href="https://twitter.com/oc7o_/" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="https:/github.com/oc7o/aurora/" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                  </ul>
                 </li>
               </ul>
             </section>
