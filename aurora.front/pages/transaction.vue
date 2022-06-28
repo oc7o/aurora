@@ -141,8 +141,8 @@
               <div class="card">
                 <div class="card-content">
                   <br>
-                  <p>Address Nonce: {{ address_nonce }}</p>
-                  <p>Address Balance: {{ address_balance }}</p>
+                  <p>Address Nonce: {{ address_nonce }} 💸</p>
+                  <p>Address Balance: {{ address_balance }} ₳</p>
                 </div>
               </div>
             </b-modal>
